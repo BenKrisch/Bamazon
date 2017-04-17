@@ -44,11 +44,12 @@ var start = function () {
 			}
 
 				]).then(function(answer) { 
-					var chosenItem; 
-					console.log("Total: " + results.stock_quantity[i]);
+					var chosenItem;
+				 
+					console.log("Total: " );
 					for (var i=0; i < results.length; i++) {
-
-						if (results[i].product_name === answer.choice) { 
+						console.log(results[i]);
+						if (results[i].item_id == answer.choice) { 
 							chosenItem = results[i]; 
 
 								if (answer.amount < chosenItem.stock_quantity) { 
@@ -65,7 +66,7 @@ var start = function () {
 									],
 								function(error) {
           							if (error) throw err;
-          								console.log("Your total: " + (chosenItem.stock_quantity * chosenItem.price));
+          								console.log("Your total: " + (answer.amount * chosenItem.price));
           							start();
         }
 						);
